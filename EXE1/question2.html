@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        .content {
+            height: 800px;
+        }
+
+        .chu {
+            color: white;
+            padding-top: 80px;
+            padding-bottom: 75px;
+        }
+
+        .chu p {
+            color: #4e74a0;
+            font-weight: 500;
+        }
+
+        .about {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn-read-more {
+            text-align: center;
+            height: 40px;
+            width: 125px;
+            border-radius: 5px;
+        }
+
+        .address {
+            padding-top: 25px;
+            padding-bottom: 15px;
+        }
+
+        .phone-number span,
+        .mail span {
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+        }
+
+        .footer {
+            background-color: #343a40;
+        }
+
+        .footer .copyright span {
+            color: white;
+        }
+
+        .footer .copyright {
+            text-align: center;
+            padding: 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">FIT-TDC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="float-right" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Question 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Question 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Question 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>Your measurements</h2>
+                    <div class="form-group">
+                        <label for="width">Width: 0 &lt; width &lt; 800px </label>
+                        <input type="email" class="form-control" id="width" aria-describedby="emailHelp"
+                            placeholder="Enter the width">
+                    </div>
+                    <div class="form-group">
+                        <label for="width">Width: 0 &lt; height &lt; 1000px </label>
+                        <input type="email" class="form-control" id="height" aria-describedby="emailHelp"
+                            placeholder="Enter the height">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radio-box">
+                        <label class="form-check-label" for="radio-box">
+                            Box
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radio-circle" checked>
+                        <label class="form-check-label" for="radio-circle">
+                            Circle
+                        </label>
+                    </div>
+                    <button class="btn-primary btn-read-more" id="btn-draw">Draw me</button>
+                </div>
+                <div class="col-md-7">
+                    <h1>Your result</h1>
+                    <div class="draw">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="copyright">
+                <span>Copyright &copy; FIT-TDC 2019</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('#btn-draw').addEventListener('click', function () {
+            let height = document.querySelector("#height").value;
+            let width = document.querySelector("#width").value;
+            if (height > 1000 || height < 0) {
+                alert('Nhập lại chiều cao');
+                return;
+            }
+            if (width > 800 || width < 0) {
+                alert('Nhập lại độ dài');
+                return;
+            }
+            let draw = document.querySelector('.draw');
+            if ($("#radio-circle").is(":checked")) {
+                draw.style.borderRadius = '50%';
+            } else {
+                draw.style.borderRadius = '5px';
+            }
+            draw.style.backgroundColor = '#fdc10a';
+            draw.style.height = `${height}px`;
+            draw.style.width = `${width}px`;
+        })
+    </script>
+</body>
+
+</html>

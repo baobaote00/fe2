@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        .content {
+            height: 600px;
+        }
+
+        .chu {
+            color: white;
+            padding-top: 80px;
+            padding-bottom: 75px;
+        }
+
+        .chu p {
+            color: #4e74a0;
+            font-weight: 500;
+        }
+
+        .about {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn-read-more {
+            text-align: center;
+            height: 40px;
+            width: 125px;
+            border-radius: 5px;
+        }
+
+        .address {
+            padding-top: 25px;
+            padding-bottom: 15px;
+        }
+
+        .phone-number span,
+        .mail span {
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+        }
+
+        .footer {
+            background-color: #343a40;
+        }
+
+        .footer .copyright span {
+            color: white;
+        }
+
+        .footer .copyright {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .draw #chart-row {
+            background-color: hsl(45deg 98% 52%);
+            margin: 0 3px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">FIT-TDC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="float-right" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Question 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Question 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Question 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Your Data</h2>
+                    <div class="form-group">
+                        <label for="width">Values (comma-separated, max 8 values)</label>
+                        <input type="email" class="form-control" id="data" aria-describedby="emailHelp"
+                            placeholder="5, 20, 25">
+                    </div>
+                    <button class="btn-primary btn-read-more" id="btn-draw">Draw chart</button>
+                </div>
+                <div class="col-md-8">
+                    <h1>Your result</h1>
+                    <div class="draw">
+                        <div class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="copyright">
+                <span>Copyright &copy; FIT-TDC 2019</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btnDraw = document.querySelector("#btn-draw");
+        btnDraw.addEventListener("click",function () {
+            document.querySelector('.draw .row').innerHTML='';
+            let data = document.querySelector("#data").value;
+            let datas = data.split(',');
+            let numrow = datas.length > 5 ? 'col-md-1' : 'col-md-2';
+            if (datas.length > 8 || datas.indexOf('') != -1) {
+                alert("nhap it hon 8 ky tu")
+                return;
+            }
+            console.table(datas.length);
+            var max = Math.max(...datas);
+            let pixel = 500/max;
+            let row =document.querySelector('.draw .row');
+            for (let i = 0; i < datas.length; i++) {
+                row.innerHTML += '<div id="chart-row" class="'+numrow + ` collum-${i}`+'">'+datas[i]+'<div/>'
+                document.querySelector(`.collum-${i}`).style.height = `${pixel*datas[i]}px`;
+            }
+        })
+    </script>
+</body>
+
+</html>
