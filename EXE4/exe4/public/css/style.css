@@ -1,0 +1,35 @@
+header.top-header{
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    position: relative;
+}
+.navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.wave{
+    fill: #008ec0;
+    mix-blend-mode: multiply;
+}
+.wave.bottom{
+    fill: #fff;
+    mix-blend-mode: normal;
+    margin-left: -2px;
+    margin-bottom: -10px;
+}
+.btn-welcome{
+    padding: 100px 0;
+}
+.button{
+    color: black;
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    background-color: yellow;
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 100px;
+}
