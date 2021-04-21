@@ -18,7 +18,7 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            top: 50%;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
         }
@@ -32,7 +32,7 @@
         }
 
         .swivel {
-            animation: spin 5s linear forwards;
+            animation: spin 5s ease-in-out forwards;
         }
 
         .item {
@@ -84,17 +84,25 @@
 </head>
 
 <body>
-    <div class="spin">
-        <div class="arrow"></div>
-        <div class="circle-1"></div>
-        <div class="circle-2">
-            <button type="button" class="btn btn-primary">start</button>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="spin">
+                <div class="arrow"></div>
+                <div class="circle-1"></div>
+                <div class="circle-2">
+                    <button type="button" class="btn btn-primary">start</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="test">
+                <div>Nhập phần tử</div>
+                <textarea name="input" id="value" cols="30" rows="10"></textarea>
+            </div>
         </div>
     </div>
-    <div class="test">
-        <div>Nhập phần tử</div>
-        <textarea name="input" id="value" cols="30" rows="10"></textarea>
-    </div>
+
+
     <script>
         const input = document.querySelector('#value');
         const circle = document.querySelector('.circle-1');
