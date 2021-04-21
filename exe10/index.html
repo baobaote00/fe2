@@ -14,13 +14,19 @@
             --rotate: 3600deg;
         }
 
+
         .spin {
-            position: absolute;
             width: 400px;
             height: 400px;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
+            margin: 0 auto;
+            /* margin-top: 20px; */
+        }
+
+        @media screen and (max-width: 400px) {
+            .spin {
+                width: 250px;
+                height: 250px;
+            }
         }
 
         .circle-1 {
@@ -28,7 +34,6 @@
             background-color: #5cb85c;
             width: 100%;
             height: 100%;
-            position: absolute;
         }
 
         .swivel {
@@ -37,10 +42,8 @@
 
         .item {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            width: 400px;
+            height: 100%;
             clip-path: var(--clipPath);
             line-height: 400px;
         }
@@ -69,10 +72,14 @@
             width: 10%;
             height: 10%;
             left: 50%;
-            transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-40%);
             background-color: blue;
             z-index: 10;
             clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+
+        .test{
+            margin-bottom: 20px;
         }
 
         @keyframes spin {
@@ -84,23 +91,26 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="spin">
-                <div class="arrow"></div>
-                <div class="circle-1"></div>
-                <div class="circle-2">
-                    <button type="button" class="btn btn-primary">start</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="test">
+                    <div>Nhập phần tử</div>
+                    <textarea name="input" id="value" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="spin">
+                    <div class="arrow"></div>
+                    <div class="circle-1"></div>
+                    <div class="circle-2">
+                        <button type="button" class="btn btn-primary">start</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="test">
-                <div>Nhập phần tử</div>
-                <textarea name="input" id="value" cols="30" rows="10"></textarea>
-            </div>
-        </div>
     </div>
+
 
 
     <script>
